@@ -1,5 +1,15 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
-export default function PostItPage() {
-  return <div>Post-it View (Style 3)</div>;
+function PostItPage() {
+  return (
+  <>
+    <Navbar />
+    <div>
+      Post-it View (Style 3)
+    </div>
+  </>
+  );
 }
+
+export default PostItPage;

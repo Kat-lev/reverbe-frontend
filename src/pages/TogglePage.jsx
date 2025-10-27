@@ -1,5 +1,15 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
-export default function TogglePage() {
-  return <div>Toggle View (Style 4)</div>;
+function TogglePage() {
+  return (
+  <>
+  <Navbar />
+  <div>
+    Toggle View (Style 4)
+  </div>
+  </>
+  );
 }
+
+export default TogglePage;

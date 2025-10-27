@@ -1,5 +1,15 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
-export default function OneToOnePage() {
-  return <div>1 to 1 View (Style 2)</div>;
+function OneToOnePage() {
+  return (
+    <>
+    <Navbar />
+    <div>
+      1 to 1 View (Style 2)
+    </div>
+    </>
+  );
 }
+
+export default OneToOnePage;

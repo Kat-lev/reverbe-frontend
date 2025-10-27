@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { mockMessages } from "../mockData"; 
+import Navbar from "../components/Navbar.jsx";
 
 function ScrollPage() {
     const [messages] = useState(mockMessages);
@@ -7,6 +8,7 @@ function ScrollPage() {
     return (
     <>
     <div>
+      <Navbar />
       <h1>Reverbe — Missatges</h1>
       {messages.map((msg) => (
         <div key={msg.id}>
