@@ -7,8 +7,8 @@ const Button = ({ children, variant = "primary", to, onClick, className, ...prop
     "flex items-center justify-center rounded-md font-semibold transition-all duration-200 ease-in-out focus:outline-none align-middle px-4 py-2";
 
   const colorStyles = {
-    primary: "text-blue-700 bg-white rounded-full px-5 py-2 flex items-center gap-2",
-    secondary: "text-white bg-blue-700 hover:bg-blue-800 rounded-full px-5 py-2 flex items-center gap-2",
+    primary: "text-[var(--blue)] bg-[var(--white)] rounded-full px-5 py-2 flex items-center gap-2",
+    secondary: "text-[var(--white)] bg-[var(--blue)] hover:bg-[var(--blue)]-800 rounded-full px-5 py-2 flex items-center gap-2",
   };
 
   if (to) {
