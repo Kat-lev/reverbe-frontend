@@ -3,10 +3,10 @@ import Button from "./Button";
 
 export default function Navbar() {
   const links = [
-    { to: "/style1", label: "Scroll" },
-    { to: "/style2", label: "1 to 1" },
-    { to: "/style3", label: "Post-it" },
-    { to: "/style4", label: "Toggle" },
+    { to: "/style1", label: "scroll" },
+    { to: "/style2", label: "1:1" },
+    { to: "/style3", label: "post-it" },
+    { to: "/style4", label: "toggle" },
   ];
 
   return (
