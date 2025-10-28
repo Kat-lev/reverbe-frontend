@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 function TogglePage() {
   return (
   <>
-  <Navbar />
+  <Header />
   <div>
     Toggle View (Style 4)
   </div>

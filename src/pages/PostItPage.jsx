@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 function PostItPage() {
   return (
   <>
-    <Navbar />
+    <Header />
     <div>
       Post-it View (Style 3)
     </div>

@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 function OneToOnePage() {
   return (
     <>
-    <Navbar />
+    <Header />
     <div>
-      1 to 1 View (Style 2)
+      1:1 View (Style 2)
     </div>
     </>
   );
