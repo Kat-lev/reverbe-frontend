@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import Button from "./Button";
 
 export default function Navbar() {
   const links = [
@@ -12,17 +12,13 @@ export default function Navbar() {
   return (
     <nav className="flex items-center gap-4 p-4">
       {links.map((link) => (
-        <NavLink
+        <Button
           key={link.to}
           to={link.to}
-          className={({ isActive }) =>
-            isActive
-              ? "font-bold underline"
-              : "hover:underline"
-          }
+          variant="primary"
         >
           {link.label}
-        </NavLink>
+        </Button>
       ))}
     </nav>
   );
