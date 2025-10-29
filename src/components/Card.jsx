@@ -10,6 +10,14 @@ export default function Card({ data, variant = "scroll" }) {
   const formatDate = (iso) =>
     new Date(iso).toLocaleString("ca-ES", { dateStyle: "medium", timeStyle: "short" });
 
+  const truncateText = (text, maxWords = 20) => {
+  const words = text.split(" ");
+  return words.length > maxWords
+    ? words.slice(0, maxWords).join(" ") + "..."
+    : text;
+};
+
+
   return (
     <div
       className={clsx(
@@ -30,7 +38,7 @@ export default function Card({ data, variant = "scroll" }) {
           {data.remitent} · {formatDate(data.data)}
         </p>
         <pre className="whitespace-pre-wrap text-(--blue) text-sm sm:text-base leading-relaxed">
-          {data.cos}
+          {collapsible ? truncateText(data.cos) : data.cos}
         </pre>
       </div>
 
