@@ -63,10 +63,10 @@ export default function Card({ data, variant = "scroll" }) {
         </pre>
       </div>
 
-      {showButtons && (
+      {variant === "postit" && (
         <div className="mt-1 flex justify-end">
-          <Button variant="primary" onClick={() => setOpen(!open)}>
-            {open ? "-" : "+"}
+          <Button variant="ghost" onClick={() => openModal(data)}>
+            +
           </Button>
         </div>
       )}
