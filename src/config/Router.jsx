@@ -10,7 +10,7 @@ function Router() {
   return (
     <Routes>
       <Route path="/style1" element={<ScrollPage />} />
-      <Route path="/style2" element={<OneToOnePage />} />
+      <Route path="/style2/:id" element={<OneToOnePage />} />
       <Route path="/style3" element={<PostItPage />} />
       <Route path="/style4" element={<TogglePage />} />
       <Route path="*" element={<ScrollPage />} />
