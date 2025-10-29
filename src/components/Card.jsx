@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useMemo } from "react";
 import Button from "./Button";
 import clsx from "clsx";
 
@@ -8,48 +8,68 @@ export default function Card({ data, variant = "scroll" }) {
   const [open, setOpen] = useState(!collapsible);
 
   const formatDate = (iso) =>
-    new Date(iso).toLocaleString("ca-ES", { dateStyle: "medium", timeStyle: "short" });
+    new Date(iso).toLocaleString("ca-ES", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
 
   const truncateText = (text, maxWords = 20) => {
-  const words = text.split(" ");
-  return words.length > maxWords
-    ? words.slice(0, maxWords).join(" ") + "..."
-    : text;
-};
+    const words = text.split(" ");
+    return words.length > maxWords
+      ? words.slice(0, maxWords).join(" ") + "..."
+      : text;
+  };
 
+  const postitColors = [
+    "bg-yellow-200 border-yellow-300",
+    "bg-pink-200 border-pink-300",
+    "bg-green-200 border-green-300",
+    "bg-blue-200 border-blue-300",
+    "bg-purple-200 border-purple-300",
+  ];
+  const randomColor = useMemo(() => {
+    return postitColors[Math.floor(Math.random() * postitColors.length)];
+  }, []);
 
   return (
     <div
       className={clsx(
-        "rounded-md border border-(--blue) bg-white transition duration-200 ease-in-out",
+        "rounded-md border border-(--blue) transition duration-200 ease-in-out",
         "p-4 sm:p-6 md:p-8",
-        variant === "scroll" && "shadow-sm hover:shadow-md space-y-4",
+        variant === "scroll" && " bg-white shadow-sm hover:shadow-md space-y-4",
         variant === "single" &&
-          "shadow-md max-w-3xl w-full mx-auto space-y-6 md:p-10",
+          " bg-white shadow-md max-w-3xl w-full mx-auto space-y-6 md:p-10",
         variant === "postit" &&
-          "shadow-lg w-full h-full flex flex-col justify-between hover:shadow-xl"
+          clsx(
+            randomColor,
+            "shadow-lg aspect-square max-w-xs flex flex-col justify-between hover:shadow-xl overflow-hidden"
+          )
       )}
     >
-    <div className="flex-1 overflow-auto">
+      <div className="flex-1 overflow-hidden">
         <h3 className="text-base sm:text-lg md:text-xl font-semibold text-(--blue)">
           {data.assumpte}
         </h3>
         <p className="text-xs sm:text-sm text-gray-500 mb-3">
           {data.remitent} · {formatDate(data.data)}
         </p>
-        <pre className="whitespace-pre-wrap text-(--blue) text-sm sm:text-base leading-relaxed">
-          {collapsible ? truncateText(data.cos) : data.cos}
+        <pre
+          className={clsx(
+            "whitespace-pre-wrap text-(--blue) text-sm sm:text-base leading-relaxed",
+            collapsible && "overflow-hidden text-ellipsis h-24"
+          )}
+        >
+          {collapsible ? truncateText(data.cos, 25) : data.cos}
         </pre>
       </div>
 
-{showButtons && (
-        <div className="mt-4 flex justify-end">
+      {showButtons && (
+        <div className="mt-1 flex justify-end">
           <Button variant="primary" onClick={() => setOpen(!open)}>
             {open ? "-" : "+"}
           </Button>
         </div>
       )}
-
 
       {open && data.reverberacions?.length > 0 && (
         <div
