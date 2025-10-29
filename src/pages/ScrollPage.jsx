@@ -14,7 +14,7 @@ function ScrollPage() {
         <h1 className="text-2xl font-bold mb-4">Reverbe — Missatges</h1>
 
         {messages.map((msg) => (
-          <Card key={msg.id} data={msg} />
+          <Card key={msg.id} data={msg} showButtons={false} collapsible={false} />
         ))}
       </main>
     </div>
