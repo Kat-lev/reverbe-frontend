@@ -1,42 +1,24 @@
 import { useState } from "react";
 import { mockMessages } from "../mockData"; 
 import Header from "../components/Header.jsx";
+import Card from "../components/Card.jsx";
 
 function ScrollPage() {
     const [messages] = useState(mockMessages);
     
     return (
-    <>
-    <div>
+     <div className="min-h-screen bg-gray-50 text-gray-900">
       <Header />
-      <h1>Reverbe — Missatges</h1>
-      {messages.map((msg) => (
-        <div key={msg.id}>
-          <h2>{msg.assumpte}</h2>
-          <p>{msg.cos}</p>
-          <p>
-            Enviat per {msg.remitent} — {new Date(msg.data).toLocaleString()}
-          </p>
 
-          {msg.reverberacions.length > 0 && (
-            <div>
-              <h3>Reverberacions:</h3>
-              {msg.reverberacions.map((rev) => (
-                <div key={rev.id}>
-                  <p>{rev.cos}</p>
-                  <p>
-                    — {rev.remitent}, {new Date(rev.data).toLocaleString()}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-          <hr />
-        </div>
-      ))}
+      <main className="max-w-4xl mx-auto px-4 py-8 space-y-8">
+        <h1 className="text-2xl font-bold mb-4">Reverbe — Missatges</h1>
+
+        {messages.map((msg) => (
+          <Card key={msg.id} data={msg} />
+        ))}
+      </main>
     </div>
-    </>
-    );
+  );
 }
 
 export default ScrollPage;

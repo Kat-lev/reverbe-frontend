@@ -1,9 +1,6 @@
 import React, {useState} from "react";
 import Button from "./Button";
 
-import React, { useState } from "react";
-import Button from "./Button";
-
 export default function Card({ data }) {
   const [open, setOpen] = useState(false);
 
