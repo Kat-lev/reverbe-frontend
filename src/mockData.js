@@ -1,4 +1,4 @@
-export const mockMessages = [
+export const messages = [
   {
     id: "f8c0cccc-ffc0-48f9-b119-f85c0f7cffea",
     assumpte: '[Diari] "Ram"',

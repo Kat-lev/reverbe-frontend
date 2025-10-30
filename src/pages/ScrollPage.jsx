@@ -1,13 +1,20 @@
-import { useState } from "react";
-import { mockMessages } from "../mockData"; 
+import { useMessages } from "../hooks/useMessages";
 import Header from "../components/Header.jsx";
 import Card from "../components/Card.jsx";
 
 function ScrollPage() {
-    const [messages] = useState(mockMessages);
-    
-    return (
-     <div className="min-h-screen bg-gray-50 text-gray-900">
+  const { messages, loading } = useMessages();
+
+  if (loading)
+    return (<div className="min-h-screen flex items-center justify-center">Carregant missatges...</div>
+    );
+
+  if (!messages.length)
+    return (<div className="min-h-screen flex items-center justify-center">Cap missatge disponible</div>
+    );
+
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-900">
       <Header />
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
