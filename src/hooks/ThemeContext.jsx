@@ -5,8 +5,8 @@ const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState("normal");
   const [colors, setColors] = useState({
-    primary: "var(--blue)",   // colores base del tema normal
-    secondary: "var(--white)",
+    primary: "var(--gray)",
+    secondary: "var(--blue)",
   });
 
   const dynamicPalette = [
@@ -28,20 +28,18 @@ export const ThemeProvider = ({ children }) => {
     setColors({ primary, secondary });
   };
 
-  // 🔁 Cambiar colores automáticamente en modo “canviant”
   useEffect(() => {
     let interval;
 
     if (theme === "canviant") {
-      randomizeColors(); // primer cambio inmediato
+      randomizeColors();
       interval = setInterval(randomizeColors, 2000);
     }
 
-    // 👉 si se vuelve a “normal”, restaurar colores por defecto
     if (theme === "normal") {
       setColors({
-        primary: "var(--blue)",
-        secondary: "var(--white)",
+        primary: "var(--gray)",
+        secondary: "var(--blue)",
       });
     }
 

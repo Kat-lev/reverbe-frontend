@@ -5,10 +5,10 @@
   --blue: #0B02FF;
   --black: #000000;
   --white: #FFFFFF;
-  --gray: #020101;
+  --gray: #f3f3f3;
 
-  --primary: var(--blue);
-  --secondary: var(--gray);
+  --primary: var(--gray);
+  --secondary: var(--blue);
 
   color-scheme: light dark;
 }
