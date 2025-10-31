@@ -9,24 +9,21 @@ export const ThemeProvider = ({ children }) => {
     secondary: "var(--blue)",
   });
 
-  const dynamicPalette = [
-    "#facc15", // amarillo
-    "#f472b6", // rosa
-    "#34d399", // verde
-    "#60a5fa", // azul claro
-    "#a78bfa", // violeta
-    "#fb923c", // naranja
-    "#2dd4bf", // turquesa
-  ];
+const generateRandomColor = () => {
+  const hue = Math.floor(Math.random() * 360);        // 0-359 grados
+  const saturation = 70 + Math.random() * 30;         // 70%-100%
+  const lightness = 50 + Math.random() * 10;          // 50%-60%
+  return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+};
 
-  const randomizeColors = () => {
-    const primary = dynamicPalette[Math.floor(Math.random() * dynamicPalette.length)];
-    let secondary;
-    do {
-      secondary = dynamicPalette[Math.floor(Math.random() * dynamicPalette.length)];
-    } while (secondary === primary);
-    setColors({ primary, secondary });
-  };
+const randomizeColors = () => {
+  const primary = generateRandomColor();
+  let secondary;
+  do {
+    secondary = generateRandomColor();
+  } while (secondary === primary);
+  setColors({ primary, secondary });
+};
 
   useEffect(() => {
     let interval;
@@ -49,12 +46,10 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     const root = document.documentElement;
 
-    // Añadimos transición CSS temporalmente
     root.style.transition = "background-color 0.8s ease, color 0.8s ease";
     root.style.setProperty("--primary", colors.primary);
     root.style.setProperty("--secondary", colors.secondary);
 
-    // Eliminamos la transición después para que no afecte otros estilos
     const timeout = setTimeout(() => {
       root.style.transition = "";
     }, 800);
