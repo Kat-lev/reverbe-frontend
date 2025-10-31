@@ -6,6 +6,9 @@
   --black: #000000;
   --white: #FFFFFF;
   color-scheme: light dark;
+
+  --primary: var(--blue);
+  --secondary: var(--white);
 }
 
 body {

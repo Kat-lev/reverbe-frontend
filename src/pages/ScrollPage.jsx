@@ -7,7 +7,11 @@ function ScrollPage() {
     const [messages] = useState(mockMessages);
     
     return (
-     <div className="min-h-screen bg-gray-50 text-gray-900">
+     <div className="min-h-screen text-gray-900 transition-colors duration-500"
+     style={{
+    backgroundColor: "var(--primary)",
+    color: "var(--secondary)",
+  }}>
       <Header />
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
