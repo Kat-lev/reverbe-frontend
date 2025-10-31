@@ -5,12 +5,17 @@
   --blue: #0B02FF;
   --black: #000000;
   --white: #FFFFFF;
-  color-scheme: light dark;
+  --gray: #020101;
 
   --primary: var(--blue);
-  --secondary: var(--white);
+  --secondary: var(--gray);
+
+  color-scheme: light dark;
 }
 
 body {
   font-family: 'IBM Plex Mono', monospace;
+  background-color: var(--secondary);
+  color: var(--primary);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
