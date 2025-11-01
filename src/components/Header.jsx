@@ -26,7 +26,7 @@ function Header() {
     theme === "canviant" ? "translate-x-[3.25rem]" : "-translate-x-[3.25rem]";
   
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+    <header className="bg-(--primary) text-(--secondary) transition-colors duration-500 fixed top-0 left-0 w-full shadow-sm z-50">
       <div className="flex items-center justify-between px-4 py-2 h-14">
         <button
           onClick={() => setOpen(!open)}
@@ -46,10 +46,10 @@ function Header() {
 
 
       {open && (
-        <div className="bg-white animate-fade-in-down">
+        <div className="animate-fade-in-down">
           <div className="flex flex-col items-center justify-center gap-8 p-6">
             <div className="flex flex-col items-center gap-2">
-              <span className="text-lg font-bold text-(--blue)">ordre</span>
+              <span className="text-lg font-bold">ordre</span>
               <div className="flex items-center gap-3 relative">
                 <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 flex justify-center">
                   <div
@@ -69,7 +69,7 @@ function Header() {
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="text-lg font-bold text-(--blue)">estil</span>
+              <span className="text-lg font-bold">estil</span>
               <div className="flex items-center gap-3 relative">
                 <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 flex justify-center">
                   <div
