@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Button from "./Button";
 import filterIcon from "../assets/filter-icon.svg";
+import { useTheme } from "../hooks/ThemeContext";
 
 function Header() {
   const [open, setOpen] = useState(false);
   const [order, setOrder] = useState("newest");
-  const [style, setStyle] = useState("normal");
+   const { theme, setTheme, randomizeColors } = useTheme();
 
   const getOrderTranslate = () => {
     switch (order) {
@@ -22,8 +23,8 @@ function Header() {
   };
 
   const getStyleTranslate = () =>
-    style === "animated" ? "translate-x-[3.25rem]" : "-translate-x-[3.25rem]";
-
+    theme === "canviant" ? "translate-x-[3.25rem]" : "-translate-x-[3.25rem]";
+  
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
       <div className="flex items-center justify-between px-4 py-2 h-14">
@@ -75,10 +76,13 @@ function Header() {
                     className={`h-0.5 w-20 bg-(--blue) transition-transform duration-300 ${getStyleTranslate()}`}
                   ></div>
                 </div>
-                <Button variant="primary" onClick={() => setStyle("normal")}>
+                <Button variant="primary" onClick={() => {setTheme("normal"); }}>
                   normal
                 </Button>
-                <Button variant="primary" onClick={() => setStyle("animated")}>
+                <Button variant="primary" onClick={() => {
+                  setTheme("canviant");
+                  randomizeColors();
+                }}>
                   canviant
                 </Button>
               </div>
