@@ -2,14 +2,24 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 
-const Button = ({ children, variant = "primary", to, onClick, className, ...props }) => {
+const Button = ({
+  children,
+  variant = "primary",
+  to,
+  onClick,
+  className,
+  ...props
+}) => {
   const baseStyles =
     "flex items-center justify-center rounded-md font-semibold transition-all duration-200 ease-in-out focus:outline-none align-middle px-4 py-2";
 
   const colorStyles = {
-    primary: "text-[var(--blue)] bg-[var(--white)] rounded-full px-5 py-2 flex items-center gap-2",
-    secondary: "text-[var(--white)] bg-[var(--blue)] hover:bg-[var(--blue)]-800 rounded-full px-5 py-2 flex items-center gap-2",
-    ghost: "text-[var(--blue)] bg-transparent hover:bg-[var(--blue)]/10 px-3 py-1 rounded flex items-center gap-2",
+    primary:
+      "text-[var(--secondary)] bg-[var(--primary)] rounded-full px-5 py-2 flex items-center gap-2",
+    secondary:
+      "text-[var(--primary)] bg-[var(--secondary)] hover:bg-[var(--secondary)]/80 rounded-full px-5 py-2 flex items-center gap-2",
+    ghost:
+      "text-[var(--secondary)] bg-transparent hover:bg-[var(--secondary)]/10 px-3 py-1 rounded flex items-center gap-2",
   };
 
   if (to) {
@@ -17,9 +27,13 @@ const Button = ({ children, variant = "primary", to, onClick, className, ...prop
       <NavLink
         to={to}
         className={({ isActive }) =>
-          clsx(baseStyles, colorStyles[isActive ? "secondary" : variant], className)
+          clsx(
+            baseStyles,
+            colorStyles[isActive ? "secondary" : variant],
+            className
+          )
         }
-        onClick={onClick} 
+        onClick={onClick}
         {...props}
       >
         {children}
