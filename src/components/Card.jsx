@@ -41,14 +41,18 @@ export default function Card({ data, variant = "scroll" }) {
     if (theme === "canviant") {
       randomizeColors();
       interval = setInterval(randomizeColors, 2000);
+    } else if (theme === "fosc") {
+      setLocalColors({
+        primary: "var(--darkgray)",
+        secondary: "var(--babyblue)",
+      });
+      setRevColors(data.reverberacions?.map(() => "hsl(0, 0%, 25%)") || []);
     } else {
       setLocalColors({
         primary: "var(--white)",
         secondary: "var(--blue)",
       });
-      setRevColors(
-        data.reverberacions?.map(() => "hsl(0, 0%, 95%)") || []
-      );
+      setRevColors(data.reverberacions?.map(() => "hsl(0, 0%, 95%)") || []);
     }
 
     return () => clearInterval(interval);
@@ -110,8 +114,7 @@ export default function Card({ data, variant = "scroll" }) {
       className={clsx(
         "rounded-md border transition duration-200 ease-in-out p-4 sm:p-6 md:p-8 shadow-md",
         variant === "scroll" && "hover:shadow-md space-y-4",
-        variant === "single" &&
-          "max-w-3xl w-full mx-auto space-y-6 md:p-10",
+        variant === "single" && "max-w-3xl w-full mx-auto space-y-6 md:p-10",
         variant === "postit" &&
           clsx(
             randomColor,

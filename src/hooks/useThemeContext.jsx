@@ -10,9 +10,9 @@ export const ThemeProvider = ({ children }) => {
   });
 
 const generateRandomColor = () => {
-  const hue = Math.floor(Math.random() * 360);        // 0-359 grados
-  const saturation = 0 + Math.random() * 100;         // 0%-100%
-  const lightness = 0 + Math.random() * 100;          // 0%-100%
+  const hue = Math.floor(Math.random() * 360);
+  const saturation = Math.random() * 100;
+  const lightness = Math.random() * 100;
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
 
@@ -31,9 +31,12 @@ const randomizeColors = () => {
     if (theme === "canviant") {
       randomizeColors();
       interval = setInterval(randomizeColors, 2000);
-    }
-
-    if (theme === "normal") {
+    } else if (theme === "fosc") {
+      setColors({
+        primary: "var(--gray)",
+        secondary: "var(--blue)",
+      });
+    } else {
       setColors({
         primary: "var(--gray)",
         secondary: "var(--blue)",
@@ -57,6 +60,11 @@ const randomizeColors = () => {
     return () => clearTimeout(timeout);
   }, [colors]);
 
+  useEffect(() => {
+    document.body.classList.remove("normal", "canviant", "fosc");
+    document.body.classList.add(theme);
+  }, [theme]);
+  
   return (
     <ThemeContext.Provider value={{ theme, setTheme, colors, randomizeColors }}>
       {children}
