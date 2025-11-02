@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import { useEffect } from "react";
 
 export default function Modal({ children, onClose }) {
    const handleOverlayClick = (e) => {
@@ -7,6 +8,14 @@ export default function Modal({ children, onClose }) {
       onClose();
     }
   };
+
+  useEffect(() => {
+  document.body.style.overflow = open ? "hidden" : "auto";
+  return () => (document.body.style.overflow = "auto");
+  }, [open]);
+
+  if (!open) return null;
+
   return (
      <div className="fixed inset-0 flex items-center justify-center z-50 overflow-y-auto"
      style={{ backgroundColor: "rgba(107, 114, 128, 0.4)" }}

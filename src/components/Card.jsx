@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import Button from "./Button";
+import Modal from "./Modal";
 import clsx from "clsx";
 import { useTheme } from "../hooks/useThemeContext";
 
@@ -7,6 +8,7 @@ export default function Card({ data, variant = "scroll" }) {
   const collapsible = variant === "postit";
   const { theme } = useTheme();
   const [open, setOpen] = useState(!collapsible);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [localColors, setLocalColors] = useState({
     primary: "var(--white)",
@@ -150,6 +152,7 @@ export default function Card({ data, variant = "scroll" }) {
         };
 
   return (
+    <>
     <div
       className={clsx(
         "rounded-md border transition duration-200 ease-in-out p-4 sm:p-6 md:p-8 shadow-md",
@@ -189,7 +192,7 @@ export default function Card({ data, variant = "scroll" }) {
 
       {variant === "postit" && (
         <div className="mt-1 flex justify-end">
-          <Button variant="ghost">+</Button>
+          <Button variant="ghost" onClick={() => setIsModalOpen(true)}>+</Button>
         </div>
       )}
 
@@ -226,5 +229,17 @@ export default function Card({ data, variant = "scroll" }) {
         </div>
       )}
     </div>
+     {isModalOpen && (
+        <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <h2 className="text-lg font-bold mb-2">{data.assumpte}</h2>
+          <p className="text-sm text-gray-500 mb-4">
+            {data.remitent} · {formatDate(data.data)}
+          </p>
+          <pre className="whitespace-pre-wrap text-sm leading-relaxed">
+            {data.cos}
+          </pre>
+        </Modal>
+      )}
+    </>
   );
 }
