@@ -88,6 +88,9 @@ function Header() {
                 <Button variant="primary" onClick={() => {setTheme("fosc"); }}>
                   fosc
                 </Button>
+                <Button variant="primary" onClick={() => {setTheme("contrast"); }}>
+                  alt contrast
+                </Button>
               </div>
             </div>
           </div>
