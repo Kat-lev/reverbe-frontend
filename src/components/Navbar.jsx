@@ -6,7 +6,6 @@ export default function Navbar() {
     { to: "/style1", label: "scroll" },
     { to: "/style2", label: "1:1" },
     { to: "/style3", label: "post-it" },
-    { to: "/style4", label: "toggle" },
   ];
 
   return (
