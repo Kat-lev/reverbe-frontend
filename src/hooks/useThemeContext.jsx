@@ -36,6 +36,11 @@ const randomizeColors = () => {
         primary: "var(--gray)",
         secondary: "var(--blue)",
       });
+    } else if (theme === "contrast") {
+      setColors({
+        primary: "var(--yellow)",
+        secondary: "var(--black)",
+      });      
     } else {
       setColors({
         primary: "var(--gray)",
@@ -61,7 +66,8 @@ const randomizeColors = () => {
   }, [colors]);
 
   useEffect(() => {
-    document.body.classList.remove("normal", "canviant", "fosc");
+    const themes = ["normal", "canviant", "fosc", "contrast"];
+    document.body.classList.remove(...themes);
     document.body.classList.add(theme);
   }, [theme]);
   

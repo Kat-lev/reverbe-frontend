@@ -38,22 +38,38 @@ export default function Card({ data, variant = "scroll" }) {
       setRevColors(newRevColors);
     };
 
-    if (theme === "canviant") {
+    switch (theme) {
+    case "canviant":
       randomizeColors();
       interval = setInterval(randomizeColors, 2000);
-    } else if (theme === "fosc") {
+      break;
+
+    case "fosc":
       setLocalColors({
         primary: "var(--darkgray)",
         secondary: "var(--babyblue)",
       });
       setRevColors(data.reverberacions?.map(() => "hsl(0, 0%, 25%)") || []);
-    } else {
+      break;
+
+    case "contrast":
+      setLocalColors({
+        primary: "var(--yellow)",
+        secondary: "var(--black)",
+      });
+      setRevColors(data.reverberacions?.map(() => "hsl(0, 0%, 10%)") || []);
+      break;
+
+    case "normal":
+    default:
       setLocalColors({
         primary: "var(--white)",
         secondary: "var(--blue)",
       });
       setRevColors(data.reverberacions?.map(() => "hsl(0, 0%, 95%)") || []);
-    }
+      break;
+  }
+
 
     return () => clearInterval(interval);
   }, [theme, data.reverberacions]);
@@ -71,6 +87,7 @@ export default function Card({ data, variant = "scroll" }) {
 
   const textColor = useMemo(() => {
     if (theme === "normal") return "var(--blue)";
+    if (theme === "contrast") return "var(--black)";
     return getContrastColor(localColors.primary);
   }, [theme, localColors]);
 
@@ -102,6 +119,13 @@ export default function Card({ data, variant = "scroll" }) {
       "bg-blue-800 border-blue-700",
       "bg-purple-800 border-purple-700",
     ],
+    contrast: [
+      "bg-yellow-300 border-yellow-400",
+      "bg-red-400 border-red-500",
+      "bg-cyan-300 border-cyan-400",
+      "bg-green-300 border-green-400",
+      "bg-purple-300 border-purple-400",
+    ]
   };
   const randomColor = useMemo(() => {
     const set = postitColors[theme] || postitColors.normal;
@@ -111,6 +135,13 @@ export default function Card({ data, variant = "scroll" }) {
   const style =
     variant === "postit"
       ? {}
+       : theme === "normal"
+    ? {
+        backgroundColor: "var(--gray)",
+        borderColor: "var(--blue)",
+        color: "var(--blue)",
+        transition: "background-color 0.8s ease, color 0.8s ease",
+      }
       : {
           backgroundColor: localColors.primary,
           borderColor: localColors.secondary,

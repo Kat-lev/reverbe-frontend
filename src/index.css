@@ -25,9 +25,21 @@ body.fosc {
   --black: #111111;
   --darkgray: #1a1a1a;
 
-  --primary: var(--black);
+  --primary: var(--darkgray);
   --secondary: var(--babyblue);
 
   background-color: var(--white);
+  color: var(--primary);
+}
+
+body.contrast {
+  --yellow: #ffe600;
+  --black: #000000;
+  --white: #FFFFFF;
+
+  --primary: var(--black);
+  --secondary: var(--yellow);
+
+  background-color: var(--yellow);
   color: var(--primary);
 }
