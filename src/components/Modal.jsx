@@ -8,10 +8,10 @@ export default function Modal({ children, onClose }) {
     }
   };
   return (
-     <div className="fixed inset-0 flex items-center justify-center z-50"
+     <div className="fixed inset-0 flex items-center justify-center z-50 overflow-y-auto"
      style={{ backgroundColor: "rgba(107, 114, 128, 0.4)" }}
       onClick={handleOverlayClick}>
-      <div className="relative bg-white rounded-lg shadow-2xl max-w-3xl w-full p-6">
+      <div className="relative rounded-lg max-w-3xl w-full p-6 my-10 overflow-y-auto max-h-[90vh]">
         <div className="flex justify-end">
           <Button
             variant="primary"
