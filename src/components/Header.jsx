@@ -77,13 +77,16 @@ function Header() {
                   ></div>
                 </div>
                 <Button variant="primary" onClick={() => {setTheme("normal"); }}>
-                  normal
+                  clar
                 </Button>
                 <Button variant="primary" onClick={() => {
                   setTheme("canviant");
                   randomizeColors();
                 }}>
                   canviant
+                </Button>
+                <Button variant="primary" onClick={() => {setTheme("fosc"); }}>
+                  fosc
                 </Button>
               </div>
             </div>
