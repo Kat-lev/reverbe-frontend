@@ -87,17 +87,26 @@ export default function Card({ data, variant = "scroll" }) {
       : text;
   };
 
-  const postitColors = [
-    "bg-yellow-200 border-yellow-300",
-    "bg-pink-200 border-pink-300",
-    "bg-green-200 border-green-300",
-    "bg-blue-200 border-blue-300",
-    "bg-purple-200 border-purple-300",
-  ];
-
+  const postitColors = {
+    normal: [
+      "bg-yellow-200 border-yellow-300",
+      "bg-pink-200 border-pink-300",
+      "bg-green-200 border-green-300",
+      "bg-blue-200 border-blue-300",
+      "bg-purple-200 border-purple-300",
+    ],
+    fosc: [
+      "bg-yellow-800 border-yellow-700",
+      "bg-pink-800 border-pink-700",
+      "bg-green-800 border-green-700",
+      "bg-blue-800 border-blue-700",
+      "bg-purple-800 border-purple-700",
+    ],
+  };
   const randomColor = useMemo(() => {
-    return postitColors[Math.floor(Math.random() * postitColors.length)];
-  }, []);
+    const set = postitColors[theme] || postitColors.normal;
+    return set[Math.floor(Math.random() * set.length)];
+  }, [theme]);
 
   const style =
     variant === "postit"
