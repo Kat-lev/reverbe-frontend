@@ -10,8 +10,18 @@ function OneToOnePage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center">Carregant missatges...</div>;
-  if (!messages.length) return <div className="min-h-screen flex items-center justify-center">Cap missatge disponible</div>;
+  if (loading)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Carregant missatges...
+      </div>
+    );
+  if (!messages.length)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Cap missatge disponible
+      </div>
+    );
 
   const currentIndex = messages.findIndex((m) => m.id === id);
   const message = currentIndex !== -1 ? messages[currentIndex] : messages[0];
@@ -27,7 +37,13 @@ function OneToOnePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center px-4 sm:px-8 py-12">
+    <div
+      className="min-h-screen text-gray-900 transition-colors duration-500 flex flex-col items-center px-4 sm:px-8 py-12"
+      style={{
+        backgroundColor: "var(--primary)",
+        color: "var(--secondary)",
+      }}
+    >
       <Header />
 
       <Card data={message} variant="single" />
@@ -42,7 +58,8 @@ function OneToOnePage() {
       </div>
 
       <p className="text-sm text-gray-500 mt-2">
-        Missatge {currentIndex !== -1 ? currentIndex + 1 : 1} de {messages.length}
+        Missatge {currentIndex !== -1 ? currentIndex + 1 : 1} de{" "}
+        {messages.length}
       </p>
     </div>
   );

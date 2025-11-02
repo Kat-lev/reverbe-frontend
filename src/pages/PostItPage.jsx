@@ -8,11 +8,27 @@ function PostItPage() {
   const { messages, loading } = useMessages();
   const [selected, setSelected] = useState(null);
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center">Carregant missatges...</div>;
-  if (!messages.length) return <div className="min-h-screen flex items-center justify-center">Cap missatge disponible</div>;
+  if (loading)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Carregant missatges...
+      </div>
+    );
+  if (!messages.length)
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Cap missatge disponible
+      </div>
+    );
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div
+      className="min-h-screen text-gray-900 transition-colors duration-500"
+      style={{
+        backgroundColor: "var(--primary)",
+        color: "var(--secondary)",
+      }}
+    >
       <Header />
       <main
         className="

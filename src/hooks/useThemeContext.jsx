@@ -11,8 +11,8 @@ export const ThemeProvider = ({ children }) => {
 
 const generateRandomColor = () => {
   const hue = Math.floor(Math.random() * 360);        // 0-359 grados
-  const saturation = 50 + Math.random() * 50;         // 50%-100%
-  const lightness = 20 + Math.random() * 50;          // 20%-70%
+  const saturation = 0 + Math.random() * 100;         // 0%-100%
+  const lightness = 0 + Math.random() * 100;          // 0%-100%
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
 
