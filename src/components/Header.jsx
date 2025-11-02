@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Button from "./Button";
 import filterIcon from "../assets/filter-icon.svg";
-import { useTheme } from "../hooks/ThemeContext";
+import { useTheme } from "../hooks/useThemeContext";
 
 function Header() {
   const [open, setOpen] = useState(false);
