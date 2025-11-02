@@ -6,22 +6,22 @@ import { useTheme } from "../hooks/useThemeContext";
 export default function Card({ data, variant = "scroll" }) {
   const collapsible = variant === "postit";
   const { theme } = useTheme();
-  const [open] = useState(!collapsible);
+  const [open, setOpen] = useState(!collapsible);
 
-  const generateRandomColor = () => {
-    const hue = Math.floor(Math.random() * 360);
-    const saturation = 0 + Math.random() * 100;
-    const lightness = 0 + Math.random() * 100;
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-  };
-
-  // 🎨 Estado local de colores para esta Card
   const [localColors, setLocalColors] = useState({
     primary: "var(--white)",
     secondary: "var(--blue)",
   });
 
-  // 🌀 Efecto para actualizar colores cuando el tema cambia
+  const [revColors, setRevColors] = useState([]);
+
+  const generateRandomColor = () => {
+    const hue = Math.floor(Math.random() * 360);
+    const saturation = Math.random() * 100;
+    const lightness = Math.random() * 100;
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+  };
+
   useEffect(() => {
     let interval;
 
@@ -32,6 +32,10 @@ export default function Card({ data, variant = "scroll" }) {
         secondary = generateRandomColor();
       } while (secondary === primary);
       setLocalColors({ primary, secondary });
+
+      const newRevColors =
+        data.reverberacions?.map(() => generateRandomColor()) || [];
+      setRevColors(newRevColors);
     };
 
     if (theme === "canviant") {
@@ -42,23 +46,29 @@ export default function Card({ data, variant = "scroll" }) {
         primary: "var(--white)",
         secondary: "var(--blue)",
       });
+      setRevColors(
+        data.reverberacions?.map(() => "hsl(0, 0%, 95%)") || []
+      );
     }
 
     return () => clearInterval(interval);
-  }, [theme]);
+  }, [theme, data.reverberacions]);
 
-  // 💡 Contraste automático
   const getContrastColor = (bgColor) => {
-    const match = bgColor.match(/\d+/g);
-    if (!match) return "#000";
-    const [h, s, l] = match.map(Number);
+    if (!bgColor.includes("hsl")) {
+      return "#fff";
+    }
+
+    const match = bgColor.match(/\d+(\.\d+)?/g);
+    if (!match) return "#fff";
+    const l = parseFloat(match[2]);
     return l > 60 ? "#000" : "#fff";
   };
 
-  const textColor = useMemo(
-    () => getContrastColor(localColors.primary),
-    [localColors]
-  );
+  const textColor = useMemo(() => {
+    if (theme === "normal") return "var(--blue)";
+    return getContrastColor(localColors.primary);
+  }, [theme, localColors]);
 
   const formatDate = (iso) =>
     new Date(iso).toLocaleString("ca-ES", {
@@ -80,6 +90,7 @@ export default function Card({ data, variant = "scroll" }) {
     "bg-blue-200 border-blue-300",
     "bg-purple-200 border-purple-300",
   ];
+
   const randomColor = useMemo(() => {
     return postitColors[Math.floor(Math.random() * postitColors.length)];
   }, []);
@@ -91,9 +102,10 @@ export default function Card({ data, variant = "scroll" }) {
           backgroundColor: localColors.primary,
           borderColor: localColors.secondary,
           color: textColor,
+          transition: "background-color 0.8s ease, color 0.8s ease",
         };
 
-   return (
+  return (
     <div
       className={clsx(
         "rounded-md border transition duration-200 ease-in-out p-4 sm:p-6 md:p-8 shadow-md",
@@ -109,10 +121,16 @@ export default function Card({ data, variant = "scroll" }) {
       style={style}
     >
       <div className="flex-1 overflow-hidden">
-        <h3 className="text-base sm:text-lg md:text-xl font-semibold">
+        <h3
+          className="text-base sm:text-lg md:text-xl font-semibold"
+          style={{ color: textColor }}
+        >
           {data.assumpte}
         </h3>
-        <p className="text-xs sm:text-sm opacity-80 mb-3">
+        <p
+          className="text-xs sm:text-sm opacity-80 mb-3"
+          style={{ color: textColor }}
+        >
           {data.remitent} · {formatDate(data.data)}
         </p>
         <pre
@@ -120,6 +138,7 @@ export default function Card({ data, variant = "scroll" }) {
             "whitespace-pre-wrap text-sm sm:text-base leading-relaxed",
             collapsible && "overflow-hidden text-ellipsis h-24"
           )}
+          style={{ color: textColor }}
         >
           {collapsible ? truncateText(data.cos, 25) : data.cos}
         </pre>
@@ -138,18 +157,29 @@ export default function Card({ data, variant = "scroll" }) {
             variant === "postit" && "overflow-auto max-h-48"
           )}
         >
-          {data.reverberacions.map((rev) => (
-            <div
-              key={rev.id}
-              className="bg-gray-50 border border-gray-200 rounded-lg p-3"
-            >
-              <h4 className="text-sm font-medium mb-1">{rev.assumpte}</h4>
-              <p className="text-xs opacity-70 mb-2">
-                {rev.remitent} · {formatDate(rev.data)}
-              </p>
-              <pre className="whitespace-pre-wrap text-sm">{rev.cos}</pre>
-            </div>
-          ))}
+          {data.reverberacions.map((rev, index) => {
+            const revBg = revColors[index] || "hsl(0,0%,95%)";
+            const revText = getContrastColor(revBg);
+
+            return (
+              <div
+                key={rev.id}
+                className="border rounded-lg p-3"
+                style={{
+                  backgroundColor: revBg,
+                  color: revText,
+                  borderColor: "rgba(0,0,0,0.1)",
+                  transition: "background-color 0.8s ease, color 0.8s ease",
+                }}
+              >
+                <h4 className="text-sm font-medium mb-1">{rev.assumpte}</h4>
+                <p className="text-xs opacity-70 mb-2">
+                  {rev.remitent} · {formatDate(rev.data)}
+                </p>
+                <pre className="whitespace-pre-wrap text-sm">{rev.cos}</pre>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

@@ -16,6 +16,5 @@
 body {
   font-family: 'IBM Plex Mono', monospace;
   background-color: var(--secondary);
-  color: var(--primary);
   transition: background-color 0.5s ease, color 0.5s ease;
 }
