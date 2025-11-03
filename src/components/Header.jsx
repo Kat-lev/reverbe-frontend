@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Navbar from "./Navbar";
 import Button from "./Button";
 import filterIcon from "../assets/filter-icon.svg";
@@ -21,6 +21,24 @@ function Header({
   const getStyleTranslate = () =>
     theme === "canviant" ? "translate-x-[3.25rem]" : "-translate-x-[3.25rem]";
 
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
   return (
     <header className="bg-(--primary) text-(--secondary) transition-colors duration-500 fixed top-0 left-0 w-full shadow-sm z-50">
       <div className="flex items-center justify-between px-4 py-2 h-14">
@@ -42,7 +60,7 @@ function Header({
       </div>
 
       {open && (
-        <div className="animate-fade-in-down">
+        <div ref={dropdownRef} className="animate-fade-in-down">
           <div className="flex flex-col items-center justify-center gap-8 p-6">
             <div className="flex flex-col items-center gap-2">
               <span className="text-lg font-bold">estil</span>
@@ -72,7 +90,8 @@ function Header({
                 </Button>
               </div>
             </div>
-            <Metadata 
+
+            <Metadata
               dataEnabled={dataEnabled}
               setDataEnabled={setDataEnabled}
               authorEnabled={authorEnabled}
