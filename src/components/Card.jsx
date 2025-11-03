@@ -224,9 +224,9 @@ export default function Card({ data, variant = "scroll", dataEnabled = false, au
               !dataEnabled && !authorEnabled && "hidden"
             )}
           >
-            {dataEnabled && rev.remitent} 
+            {dataEnabled && formatDate(rev.data)}
             {dataEnabled && authorEnabled && " · "}
-            {authorEnabled && formatDate(rev.data)}
+            {authorEnabled && rev.remitent}
           </p>
           <pre className="whitespace-pre-wrap text-sm">{rev.cos}</pre>
         </div>
