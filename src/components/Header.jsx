@@ -4,6 +4,7 @@ import Button from "./Button";
 import filterIcon from "../assets/filter-icon.svg";
 import { useTheme } from "../hooks/useThemeContext";
 import Metadata from "./Metadata";
+import Next from "./Next";
 
 function Header({
   dataEnabled,
@@ -110,6 +111,7 @@ function Header({
               authorOrder={authorOrder}
               setAuthorOrder={setAuthorOrder}
             />
+            <Next />
           </div>
         </div>
       )}
