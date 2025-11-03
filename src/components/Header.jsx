@@ -44,58 +44,61 @@ function Header() {
         <div className="w-10" />
       </div>
 
+{open && (
+  <div className="animate-fade-in-down">
+    <div className="flex flex-col items-center justify-center gap-8 p-6">
 
-      {open && (
-        <div className="animate-fade-in-down">
-          <div className="flex flex-col items-center justify-center gap-8 p-6">
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-lg font-bold">ordre</span>
-              <div className="flex items-center gap-3 relative">
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 flex justify-center">
-                  <div
-                    className={`h-0.5 w-20 bg-(--blue) transition-transform duration-300 ${getOrderTranslate()}`}
-                  ></div>
-                </div>
-                <Button variant="primary" onClick={() => setOrder("oldest")}>
-                  cronològic
-                </Button>
-                <Button variant="primary" onClick={() => setOrder("newest")}>
-                  invers
-                </Button>
-                <Button variant="primary" onClick={() => setOrder("random")}>
-                  a l&apos;atzar
-                </Button>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-lg font-bold">estil</span>
-              <div className="flex items-center gap-3 relative">
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 flex justify-center">
-                  <div
-                    className={`h-0.5 w-20 bg-(--blue) transition-transform duration-300 ${getStyleTranslate()}`}
-                  ></div>
-                </div>
-                <Button variant="primary" onClick={() => {setTheme("normal"); }}>
-                  clar
-                </Button>
-                <Button variant="primary" onClick={() => {
-                  setTheme("canviant");
-                  randomizeColors();
-                }}>
-                  canviant
-                </Button>
-                <Button variant="primary" onClick={() => {setTheme("fosc"); }}>
-                  fosc
-                </Button>
-                <Button variant="primary" onClick={() => {setTheme("contrast"); }}>
-                  alt contrast
-                </Button>
-              </div>
-            </div>
+      <div className="flex flex-col items-center gap-2">
+        <span className="text-lg font-bold">estil</span>
+        <div className="flex items-center gap-3 relative">
+          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 flex justify-center">
+            <div
+              className={`h-0.5 w-20 bg-(--blue) transition-transform duration-300 ${getStyleTranslate()}`}
+            ></div>
           </div>
+          <Button variant="primary" onClick={() => {setTheme("normal"); }}>
+            clar
+          </Button>
+          <Button variant="primary" onClick={() => {
+            setTheme("canviant");
+            randomizeColors();
+          }}>
+            canviant
+          </Button>
+          <Button variant="primary" onClick={() => {setTheme("fosc"); }}>
+            fosc
+          </Button>
+          <Button variant="primary" onClick={() => {setTheme("contrast"); }}>
+            alt contrast
+          </Button>
         </div>
-      )}
+      </div>
+
+
+
+      <div className="flex flex-col items-center gap-2">
+        <span className="text-lg font-bold">metadates</span>
+        <div className="flex items-center gap-3 relative">
+          <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 flex justify-center">
+            <div
+              className={`h-0.5 w-20 bg-(--blue) transition-transform duration-300 ${getOrderTranslate()}`}
+            ></div>
+          </div>
+          <Button variant="primary" onClick={() => setOrder("oldest")}>
+            cronològic
+          </Button>
+          <Button variant="primary" onClick={() => setOrder("newest")}>
+            invers
+          </Button>
+          <Button variant="primary" onClick={() => setOrder("random")}>
+            a l&apos;atzar
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+
     </header>
   );
 }
