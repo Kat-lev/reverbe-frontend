@@ -30,7 +30,7 @@ function Metadata({
 
         <div className="flex items-center gap-3">
           <button
-            className={`${dataOrder === "oldest" ? "font-bold" : "opacity-50"} ${
+            className={`px-3 py-1 ${dataOrder === "newest" ? "font-bold" : "opacity-50"} ${
               !dataEnabled && "opacity-30"
             }`}
             onClick={() => dataEnabled && setDataOrder("newest")}
@@ -39,7 +39,7 @@ function Metadata({
           </button>
 
           <button
-            className={`${dataOrder === "newest" ? "font-bold" : "opacity-50"} ${
+            className={`px-3 py-1 ${dataOrder === "oldest" ? "font-bold" : "opacity-50"} ${
               !dataEnabled && "opacity-30"
             }`}
             onClick={() => dataEnabled && setDataOrder("oldest")}
@@ -48,7 +48,7 @@ function Metadata({
           </button>
 
           <button
-            className={`${dataOrder === "random" ? "font-bold" : "opacity-50"} ${
+            className={`px-3 py-1 ${dataOrder === "random" ? "font-bold" : "opacity-50"} ${
               !dataEnabled && "opacity-30"
             }`}
             onClick={() => dataEnabled && setDataOrder("random")}
@@ -71,7 +71,7 @@ function Metadata({
 
         <div className="flex items-center gap-3">
           <button
-            className={`${authorOrder === "az" ? "font-bold" : "opacity-50"} ${
+            className={`px-3 py-1 ${authorOrder === "az" ? "font-bold" : "opacity-50"} ${
               !authorEnabled && "opacity-30"
             }`}
             onClick={() => authorEnabled && setAuthorOrder("az")}
@@ -80,7 +80,7 @@ function Metadata({
           </button>
 
           <button
-            className={`${authorOrder === "za" ? "font-bold" : "opacity-50"} ${
+            className={`px-3 py-1 ${authorOrder === "za" ? "font-bold" : "opacity-50"} ${
               !authorEnabled && "opacity-30"
             }`}
             onClick={() => authorEnabled && setAuthorOrder("za")}
@@ -89,7 +89,7 @@ function Metadata({
           </button>
 
           <button
-            className={`${authorOrder === "random" ? "font-bold" : "opacity-50"} ${
+            className={`px-3 py-1 ${authorOrder === "random" ? "font-bold" : "opacity-50"} ${
               !authorEnabled && "opacity-30"
             }`}
             onClick={() => authorEnabled && setAuthorOrder("random")}
