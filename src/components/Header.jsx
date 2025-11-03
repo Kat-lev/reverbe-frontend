@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from "react";
 import Navbar from "./Navbar";
 import Button from "./Button";
@@ -23,11 +24,12 @@ function Header({
 
   useEffect(() => {
     function handleClickOutside(e) {
-      if 
-      (dropdownRef.current &&
-      !dropdownRef.current.contains(e.target) &&
-      buttonRef.current &&
-      !buttonRef.current.contains(e.target)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(e.target)
+      ) {
         setOpen(false);
       }
     }
@@ -36,25 +38,23 @@ function Header({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [open]);
+  }, []);
 
   return (
     <header className="bg-(--primary) text-(--secondary) transition-colors duration-500 fixed top-0 left-0 w-full shadow-sm z-50">
       <div className="flex items-center justify-between px-4 py-2 h-14">
         <button
           ref={buttonRef}
-          onClick={() => setOpen((prev) => !prev)}
+          onClick={() => setOpen(true)}
           aria-label="Toggle navigation and filters"
           className="p-1 z-50 relative"
         >
           <img src={filterIcon} alt="Filter icon" className="w-10 h-10" />
         </button>
 
-        {open && (
-          <div className="flex justify-center flex-1">
-            <Navbar onLinkClick={() => setOpen(false)} />
-          </div>
-        )}
+        <div className="flex justify-center flex-1">
+          <Navbar />
+        </div>
 
         <div className="w-10" />
       </div>
@@ -62,7 +62,6 @@ function Header({
       {open && (
         <div
           ref={dropdownRef}
-          onClick={(e) => e.stopPropagation()}
           className="absolute top-full left-0 w-full max-h-[80vh] overflow-y-auto animate-fade-in-down bg-(--primary) z-40"
         >
           <div className="flex flex-col items-center justify-center gap-8 p-6">
