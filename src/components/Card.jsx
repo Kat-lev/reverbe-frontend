@@ -217,8 +217,7 @@ export default function Card({ data, variant = "scroll", dataEnabled = false, au
             transition: "background-color 0.8s ease, color 0.8s ease",
           }}
         >
-          <h4 className="text-sm font-medium mb-1">{rev.assumpte}</h4>
-          <pre className="whitespace-pre-wrap text-sm">{rev.cos}</pre>
+          <h4 className="text-sm font-medium mb-1">{rev.assumpte}</h4> 
           <p
             className={clsx(
               "text-xs opacity-70 mt-2",
@@ -229,6 +228,7 @@ export default function Card({ data, variant = "scroll", dataEnabled = false, au
             {dataEnabled && authorEnabled && " · "}
             {authorEnabled && formatDate(rev.data)}
           </p>
+          <pre className="whitespace-pre-wrap text-sm">{rev.cos}</pre>
         </div>
       );
     })}
