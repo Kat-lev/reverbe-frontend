@@ -33,7 +33,7 @@ function Metadata({
             className={`${dataOrder === "oldest" ? "font-bold" : "opacity-50"} ${
               !dataEnabled && "opacity-30"
             }`}
-            onClick={() => dataEnabled && setDataOrder("oldest")}
+            onClick={() => dataEnabled && setDataOrder("newest")}
           >
             cronològic
           </button>
@@ -42,7 +42,7 @@ function Metadata({
             className={`${dataOrder === "newest" ? "font-bold" : "opacity-50"} ${
               !dataEnabled && "opacity-30"
             }`}
-            onClick={() => dataEnabled && setDataOrder("newest")}
+            onClick={() => dataEnabled && setDataOrder("oldest")}
           >
             invers
           </button>
