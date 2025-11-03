@@ -5,7 +5,16 @@ import filterIcon from "../assets/filter-icon.svg";
 import { useTheme } from "../hooks/useThemeContext";
 import Metadata from "./Metadata";
 
-function Header() {
+function Header({
+  dataEnabled,
+  setDataEnabled,
+  authorEnabled,
+  setAuthorEnabled,
+  dataOrder,
+  setDataOrder,
+  authorOrder,
+  setAuthorOrder
+}) {
   const [open, setOpen] = useState(false);
   const { theme, setTheme, randomizeColors } = useTheme();
 
@@ -63,7 +72,16 @@ function Header() {
                 </Button>
               </div>
             </div>
-            <Metadata />
+            <Metadata 
+              dataEnabled={dataEnabled}
+              setDataEnabled={setDataEnabled}
+              authorEnabled={authorEnabled}
+              setAuthorEnabled={setAuthorEnabled}
+              dataOrder={dataOrder}
+              setDataOrder={setDataOrder}
+              authorOrder={authorOrder}
+              setAuthorOrder={setAuthorOrder}
+            />
           </div>
         </div>
       )}

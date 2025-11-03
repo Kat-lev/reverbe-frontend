@@ -2,18 +2,21 @@ import React, { useState } from "react";
 import toggleOnIcon from "../assets/toggle-on.svg";
 import toggleOffIcon from "../assets/toggle-off.svg";
 
-function Metadata() {
-  const [dataEnabled, setDataEnabled] = useState(false);
-  const [authorEnabled, setAuthorEnabled] = useState(false);
-
-  const [dataOrder, setDataOrder] = useState("newest");
-  const [authorOrder, setAuthorOrder] = useState("az");
+function Metadata({
+  dataEnabled,
+  setDataEnabled,
+  authorEnabled,
+  setAuthorEnabled,
+  dataOrder,
+  setDataOrder,
+  authorOrder,
+  setAuthorOrder
+})  {
 
   return (
     <div className="flex flex-col items-center gap-6">
       <span className="text-lg font-bold">metadades</span>
 
-      {/* DATA */}
       <div className="flex items-center gap-4">
         <span className="text-lg font-medium">data</span>
 
@@ -55,7 +58,6 @@ function Metadata() {
         </div>
       </div>
 
-      {/* AUTHOR */}
       <div className="flex items-center gap-4">
         <span className="text-lg font-medium">autor</span>
 
