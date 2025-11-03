@@ -18,20 +18,21 @@ function Header({
 }) {
   const [open, setOpen] = useState(false);
   const { theme, setTheme, randomizeColors } = useTheme();
-
   const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(e) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      if 
+      (dropdownRef.current &&
+      !dropdownRef.current.contains(e.target) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(e.target)) {
         setOpen(false);
       }
     }
 
-    if (open) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -41,9 +42,10 @@ function Header({
     <header className="bg-(--primary) text-(--secondary) transition-colors duration-500 fixed top-0 left-0 w-full shadow-sm z-50">
       <div className="flex items-center justify-between px-4 py-2 h-14">
         <button
-          onClick={() => setOpen(!open)}
+          ref={buttonRef}
+          onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle navigation and filters"
-          className="p-1"
+          className="p-1 z-50 relative"
         >
           <img src={filterIcon} alt="Filter icon" className="w-10 h-10" />
         </button>
@@ -58,11 +60,14 @@ function Header({
       </div>
 
       {open && (
-        <div ref={dropdownRef} className="animate-fade-in-down">
+        <div
+          ref={dropdownRef}
+          onClick={(e) => e.stopPropagation()}
+          className="absolute top-full left-0 w-full max-h-[80vh] overflow-y-auto animate-fade-in-down bg-(--primary) z-40"
+        >
           <div className="flex flex-col items-center justify-center gap-8 p-6">
             <div className="flex flex-col items-center gap-2">
               <span className="text-lg font-bold">estil</span>
-
               <div className="flex items-center gap-3 relative">
                 <Button
                   variant="primary"
