@@ -18,9 +18,6 @@ function Header({
   const [open, setOpen] = useState(false);
   const { theme, setTheme, randomizeColors } = useTheme();
 
-  const getStyleTranslate = () =>
-    theme === "canviant" ? "translate-x-[3.25rem]" : "-translate-x-[3.25rem]";
-
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -64,17 +61,19 @@ function Header({
           <div className="flex flex-col items-center justify-center gap-8 p-6">
             <div className="flex flex-col items-center gap-2">
               <span className="text-lg font-bold">estil</span>
+
               <div className="flex items-center gap-3 relative">
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 flex justify-center">
-                  <div
-                    className={`h-0.5 w-20 bg-(--blue) transition-transform duration-300 ${getStyleTranslate()}`}
-                  ></div>
-                </div>
-                <Button variant="primary" onClick={() => setTheme("normal")}>
-                  clar
-                </Button>
                 <Button
                   variant="primary"
+                  className={theme === "normal" ? "overline decoration-[3px]" : ""}
+                  onClick={() => setTheme("normal")}
+                >
+                  clar
+                </Button>
+
+                <Button
+                  variant="primary"
+                  className={theme === "canviant" ? "overline decoration-[3px]" : ""}
                   onClick={() => {
                     setTheme("canviant");
                     randomizeColors();
@@ -82,10 +81,20 @@ function Header({
                 >
                   canviant
                 </Button>
-                <Button variant="primary" onClick={() => setTheme("fosc")}>
+
+                <Button
+                  variant="primary"
+                  className={theme === "fosc" ? "overline decoration-[3px]" : ""}
+                  onClick={() => setTheme("fosc")}
+                >
                   fosc
                 </Button>
-                <Button variant="primary" onClick={() => setTheme("contrast")}>
+
+                <Button
+                  variant="primary"
+                  className={theme === "contrast" ? "overline decoration-[3px]" : ""}
+                  onClick={() => setTheme("contrast")}
+                >
                   alt contrast
                 </Button>
               </div>
