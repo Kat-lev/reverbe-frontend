@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import clsx from "clsx";
 import { useTheme } from "../hooks/useThemeContext";
 
-export default function Card({ data, variant = "scroll" }) {
+export default function Card({ data, variant = "scroll", dataEnabled = false, authorEnabled = false }) {
   const collapsible = variant === "postit";
   const { theme } = useTheme();
   const [open, setOpen] = useState(!collapsible);
@@ -195,39 +195,46 @@ export default function Card({ data, variant = "scroll" }) {
           <Button variant="ghost" onClick={() => setIsModalOpen(true)}>+</Button>
         </div>
       )}
+    {open && data.reverberacions?.length > 0 && (
+  <div
+    className={clsx(
+      "mt-4 space-y-3 border-t border-gray-100 pt-3",
+      variant === "postit" && "overflow-auto max-h-48"
+    )}
+  >
+    {data.reverberacions.map((rev, index) => {
+      const revBg = revColors[index] || "hsl(0,0%,95%)";
+      const revText = getContrastColor(revBg);
 
-      {open && data.reverberacions?.length > 0 && (
+      return (
         <div
-          className={clsx(
-            "mt-4 space-y-3 border-t border-gray-100 pt-3",
-            variant === "postit" && "overflow-auto max-h-48"
-          )}
+          key={rev.id}
+          className="border rounded-lg p-3"
+          style={{
+            backgroundColor: revBg,
+            color: revText,
+            borderColor: "rgba(0,0,0,0.1)",
+            transition: "background-color 0.8s ease, color 0.8s ease",
+          }}
         >
-          {data.reverberacions.map((rev, index) => {
-            const revBg = revColors[index] || "hsl(0,0%,95%)";
-            const revText = getContrastColor(revBg);
-
-            return (
-              <div
-                key={rev.id}
-                className="border rounded-lg p-3"
-                style={{
-                  backgroundColor: revBg,
-                  color: revText,
-                  borderColor: "rgba(0,0,0,0.1)",
-                  transition: "background-color 0.8s ease, color 0.8s ease",
-                }}
-              >
-                <h4 className="text-sm font-medium mb-1">{rev.assumpte}</h4>
-                <p className="text-xs opacity-70 mb-2">
-                  {rev.remitent} · {formatDate(rev.data)}
-                </p>
-                <pre className="whitespace-pre-wrap text-sm">{rev.cos}</pre>
-              </div>
-            );
-          })}
+          <h4 className="text-sm font-medium mb-1">{rev.assumpte}</h4>
+          <pre className="whitespace-pre-wrap text-sm">{rev.cos}</pre>
+          <p
+            className={clsx(
+              "text-xs opacity-70 mt-2",
+              !dataEnabled && !authorEnabled && "hidden"
+            )}
+          >
+            {dataEnabled && rev.remitent} 
+            {dataEnabled && authorEnabled && " · "}
+            {authorEnabled && formatDate(rev.data)}
+          </p>
         </div>
-      )}
+      );
+    })}
+  </div>
+)}
+
     </div>
      {isModalOpen && (
         <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
