@@ -21,10 +21,10 @@ function Next() {
   ];
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-2 px-4">
       <span className="text-lg font-bold">properament</span>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-4xl opacity-40 cursor-not-allowed">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-4xl opacity-40 cursor-not-allowed box-border">
         {items.map((item, i) => (
           <div
             key={i}
