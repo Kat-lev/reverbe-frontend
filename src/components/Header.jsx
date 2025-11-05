@@ -2,10 +2,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import Navbar from "./Navbar";
 import Button from "./Button";
-import filterIcon from "../assets/filter-icon.svg";
 import { useTheme } from "../hooks/useThemeContext";
 import Metadata from "./Metadata";
-import Next from "./Next";
 import FilterIcon from "./icons/FilterIcon";
 
 function Header({
@@ -67,14 +65,14 @@ function Header({
         >
           <div className="flex flex-col items-center justify-center gap-8 p-6">
             <div className="flex flex-col items-center gap-2">
-              <span className="text-lg font-bold">estil</span>
+              <span className="text-lg font-bold">style</span>
               <div className="flex items-center gap-3 relative">
                 <Button
                   variant="primary"
                   className={theme === "normal" ? "overline decoration-[3px]" : ""}
                   onClick={() => setTheme("normal")}
                 >
-                  clar
+                  light
                 </Button>
 
                 <Button
@@ -85,7 +83,7 @@ function Header({
                     randomizeColors();
                   }}
                 >
-                  canviant
+                  moody
                 </Button>
 
                 <Button
@@ -93,7 +91,7 @@ function Header({
                   className={theme === "fosc" ? "overline decoration-[3px]" : ""}
                   onClick={() => setTheme("fosc")}
                 >
-                  fosc
+                  dark
                 </Button>
 
                 <Button
@@ -101,7 +99,7 @@ function Header({
                   className={theme === "contrast" ? "overline decoration-[3px]" : ""}
                   onClick={() => setTheme("contrast")}
                 >
-                  alt contrast
+                  hi-contrast
                 </Button>
               </div>
             </div>
@@ -116,7 +114,6 @@ function Header({
               authorOrder={authorOrder}
               setAuthorOrder={setAuthorOrder}
             />
-            <Next />
           </div>
         </div>
       )}

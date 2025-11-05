@@ -14,11 +14,11 @@ function Metadata({
 })  {
 
   return (
-    <div className="flex flex-col items-center gap-6">
-      <span className="text-lg font-bold">metadades</span>
+    <div className="flex flex-col items-center gap-6 w-full overflow-x-hidden">
+      <span className="text-lg font-bold">metadata</span>
 
-      <div className="flex items-center gap-4">
-        <span className="text-lg font-medium">data</span>
+      <div className="flex flex-wrap justify-center items-center gap-4 w-full text-center">
+        <span className="text-lg font-medium">date</span>
 
         <button onClick={() => setDataEnabled(!dataEnabled)}>
           <img
@@ -35,7 +35,7 @@ function Metadata({
             }`}
             onClick={() => dataEnabled && setDataOrder("newest")}
           >
-            cronològic
+            chronological
           </button>
 
           <button
@@ -44,7 +44,7 @@ function Metadata({
             }`}
             onClick={() => dataEnabled && setDataOrder("oldest")}
           >
-            invers
+            inverse
           </button>
 
           <button
@@ -58,8 +58,8 @@ function Metadata({
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
-        <span className="text-lg font-medium">autor</span>
+      <div className="flex flex-wrap justify-center items-center gap-4 w-full text-center">
+        <span className="text-lg font-medium">author</span>
 
         <button onClick={() => setAuthorEnabled(!authorEnabled)}>
           <img
