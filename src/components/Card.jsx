@@ -182,7 +182,7 @@ export default function Card({ data, variant = "scroll", dataEnabled = false, au
         <pre
           className={clsx(
             "whitespace-pre-wrap text-sm sm:text-base leading-relaxed",
-            collapsible && "overflow-hidden text-ellipsis h-24"
+            collapsible && "overflow-hidden text-ellipsis h-40 sm:h-24"
           )}
           style={{ color: textColor }}
         >

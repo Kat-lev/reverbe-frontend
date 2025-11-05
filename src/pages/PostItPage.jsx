@@ -32,11 +32,12 @@ function PostItPage() {
       <Header />
       <main
         className="
-          max-w-7xl mx-auto mt-14
-          p-4 sm:p-6 lg:p-8 
-          grid gap-6
-          grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-        "
+           w-full max-w-7xl mx-auto mt-14
+           p-4 sm:p-6 lg:p-8
+           grid gap-6
+           grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+           justify-items-center
+           "
       >
         {messages.slice(0, 6).map((msg) => (
           <div
