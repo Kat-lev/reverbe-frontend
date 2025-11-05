@@ -6,6 +6,7 @@ import filterIcon from "../assets/filter-icon.svg";
 import { useTheme } from "../hooks/useThemeContext";
 import Metadata from "./Metadata";
 import Next from "./Next";
+import FilterIcon from "./icons/FilterIcon";
 
 function Header({
   dataEnabled,
@@ -49,7 +50,7 @@ function Header({
           aria-label="Toggle navigation and filters"
           className="p-1 z-50 relative"
         >
-          <img src={filterIcon} alt="Filter icon" className="w-10 h-10" />
+          <FilterIcon className="w-6 h-6" />
         </button>
 
         <div className="flex justify-center flex-1">

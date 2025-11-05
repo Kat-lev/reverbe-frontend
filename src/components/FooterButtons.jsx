@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
-import PenIcon from "./PenIcon";
-import HomeIcon from "./HomeIcon";
+import PenIcon from "./icons/PenIcon";
+import HomeIcon from "./icons/HomeIcon";
 
 
 export default function FooterButtons() {
