@@ -60,19 +60,19 @@ useEffect(() => {
       <Header />
 
       <Button
-        variant="secondary"
+        variant="ghost"
         onClick={handlePrev}
-        className="fixed left-4 md:left-10 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-4 shadow-lg"
+        className="fixed left-5 md:left-10 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-4 shadow-lg backdrop-blur-md bg-[var(--secondary)]/20 hover:bg-[var(--secondary)]/30 border border-[var(--primary)]/30"
       >
-        ←
+        <span className="text-xl sm:text-2xl font-bold">←</span>
       </Button>
 
       <Button
-        variant="secondary"
+        variant="ghost"
         onClick={handleNext}
-        className="fixed right-4 md:right-10 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-4 shadow-lg"
+        className="fixed right-5 md:right-10 top-1/2 -translate-y-1/2 z-40 p-3 sm:p-4 shadow-lg backdrop-blur-md bg-[var(--secondary)]/20 hover:bg-[var(--secondary)]/30 border border-[var(--primary)]/30"
       >
-        →
+        <span className="text-xl sm:text-2xl font-bold">→</span>
       </Button>
 
       <div className="w-full flex justify-center mt-12 mb-8">

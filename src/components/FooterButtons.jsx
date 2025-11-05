@@ -1,5 +1,8 @@
 import React from "react";
 import Button from "./Button";
+import PenIcon from "./PenIcon";
+import HomeIcon from "./HomeIcon";
+
 
 export default function FooterButtons() {
   return (
@@ -14,17 +17,15 @@ export default function FooterButtons() {
       <Button
         variant="secondary"
         onClick={() => window.open('https://raio.issim.net', '_blank')}
-        className="px-4 py-2 sm:px-6 sm:py-3 shadow-md"
       >
-        🏠
+        <HomeIcon className="scale-150"/>
       </Button>
 
       <Button
         variant="secondary"
         onClick={() => window.open('https://raio.issim.net/mozfestpost/', '_blank')}
-        className="px-4 py-2 sm:px-6 sm:py-3 shadow-md"
       >
-        ✍️
+        <PenIcon />
       </Button>
     </div>
   );
