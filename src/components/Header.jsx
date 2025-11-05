@@ -46,7 +46,7 @@ function Header({
       <div className="flex items-center justify-between px-4 py-2 h-14">
         <button
           ref={buttonRef}
-          onClick={() => setOpen(true)}
+          onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle navigation and filters"
           className="p-1 z-50 relative"
         >
