@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import Modal from "../components/Modal";
 import { useMessages } from "../hooks/useMessages";
+import FooterButtons from "../components/FooterButtons";
 
 function PostItPage() {
   const { messages, loading } = useMessages();
@@ -55,6 +56,9 @@ function PostItPage() {
           <Card data={selected} variant="single" />
         </Modal>
       )}
+
+      <FooterButtons />
+
     </div>
   );
 }

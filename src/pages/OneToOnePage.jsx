@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Card from "../components/Card";
 import Button from "../components/Button";
+import FooterButtons from "../components/FooterButtons";
 
 function OneToOnePage() {
   const { messages, loading } = useMessages();
@@ -81,6 +82,9 @@ useEffect(() => {
       <p className="text-sm text-gray-500 mb-10">
         Missatge {currentIndex + 1} de {messages.length}
       </p>
+
+      <FooterButtons/>
+
     </div>
   );
 }

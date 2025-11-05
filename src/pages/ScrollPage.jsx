@@ -2,6 +2,7 @@ import { useMessages } from "../hooks/useMessages";
 import Header from "../components/Header.jsx";
 import Card from "../components/Card.jsx";
 import { useState, useMemo } from "react";
+import FooterButtons from "../components/FooterButtons.jsx";
 
 function ScrollPage() {
   const { messages, loading } = useMessages();
@@ -68,6 +69,7 @@ function ScrollPage() {
           <Card key={msg.id} data={msg} variant="scroll" dataEnabled={dataEnabled} authorEnabled={authorEnabled} />
         ))}
       </main>
+      <FooterButtons />
     </div>
   );
 }
