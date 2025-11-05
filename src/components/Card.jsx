@@ -155,7 +155,7 @@ export default function Card({ data, variant = "scroll", dataEnabled = false, au
     <>
     <div
       className={clsx(
-        "rounded-md border transition duration-200 ease-in-out p-4 sm:p-6 md:p-8 shadow-md",
+        "rounded-md border transition duration-200 ease-in-out p-3 sm:p-4 md:p-6 shadow-md",
         variant === "scroll" && "hover:shadow-md space-y-4",
         variant === "single" && "max-w-3xl w-full mx-auto space-y-6 md:p-10",
         variant === "postit" &&
