@@ -33,41 +33,30 @@ function Metadata({
         </button>
 
         <div className="flex items-center gap-3">
-          <Button
-            variant="primary"
-            className={clsx(
-              "hidden md:inline px-3 py-1",
-              dataOrder === "newest" ? "font-bold overline decoration-[3px]" : "opacity-40",
-              !dataEnabled && "opacity-40"
-            )}
+          <button
+            className={`hidden md:inline px-3 py-1 ${dataOrder === "newest" ? "font-bold overline decoration-[3px]" : "opacity-40"} ${!dataEnabled && "opacity-40"
+              }`}
             onClick={() => dataEnabled && setDataOrder("newest")}
           >
             newest
-          </Button>
+          </button>
 
-          <Button
-            variant="primary"
-            className={clsx(
-              "hidden md:inline px-3 py-1",
-              dataOrder === "oldest" ? "font-bold overline decoration-[3px]" : "opacity-40",
-              !dataEnabled && "opacity-40"
-            )}
+          <button
+            className={`hidden md:inline px-3 py-1 ${dataOrder === "oldest" ? "font-bold overline decoration-[3px]" : "opacity-40"} ${!dataEnabled && "opacity-40"
+              }`}
             onClick={() => dataEnabled && setDataOrder("oldest")}
           >
             oldest
-          </Button>
+          </button>
 
-          <Button
-            variant="primary"
-            className={clsx(
-              "hidden md:inline px-3 py-1",
-              dataOrder === "random" ? "font-bold overline decoration-[3px]" : "opacity-40",
-              !dataEnabled && "opacity-40"
-            )}
+          <button
+            className={`hidden md:inline px-3 py-1 ${dataOrder === "random" ? "font-bold overline decoration-[3px]" : "opacity-40"} ${!dataEnabled && "opacity-40"
+              }`}
             onClick={() => dataEnabled && setDataOrder("random")}
           >
             random
-          </Button>
+          </button>
+
           <Button
             variant="primary"
             className={clsx(
