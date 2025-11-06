@@ -27,7 +27,7 @@ function Metadata({
       <div className="flex items-center gap-4">
         <span className="text-lg font-medium">date</span>
 
-        <button onClick={() => setDataEnabled(!dataEnabled)}>
+        <button className="cursor-pointer" onClick={() => setDataEnabled(!dataEnabled)}>
           {dataEnabled ? (<ToggleOnIcon className="w-8 h-8" />) : (<ToggleOffIcon className="w-8 h-8" />)}
 
         </button>
@@ -106,7 +106,7 @@ function Metadata({
       <div className="flex items-center gap-4">
         <span className="text-lg font-medium">author</span>
 
-        <button onClick={() => setAuthorEnabled(!authorEnabled)}>
+        <button className="cursor-pointer" onClick={() => setAuthorEnabled(!authorEnabled)}>
           {authorEnabled ? (<ToggleOnIcon className="w-8 h-8" />) : (<ToggleOffIcon className="w-8 h-8" />)}
         </button>
 

@@ -46,7 +46,7 @@ function Header({
           ref={buttonRef}
           onClick={() => setOpen((prev) => !prev)}
           aria-label="Toggle navigation and filters"
-          className="p-1 z-50 relative"
+          className="cursor-pointer p-1 z-50 relative"
         >
           <FilterIcon className="w-6 h-6" />
         </button>

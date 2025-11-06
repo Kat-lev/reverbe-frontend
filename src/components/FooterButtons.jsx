@@ -16,6 +16,7 @@ export default function FooterButtons() {
     >
       <Button
         variant="secondary"
+        className="cursor-pointer"
         onClick={() => window.open('https://raio.issim.net', '_blank')}
       >
         <HomeIcon className="scale-150"/>
@@ -23,6 +24,7 @@ export default function FooterButtons() {
 
       <Button
         variant="secondary"
+        className="cursor-pointer"
         onClick={() => window.open('https://raio.issim.net/mozfestpost/', '_blank')}
       >
         <PenIcon />
