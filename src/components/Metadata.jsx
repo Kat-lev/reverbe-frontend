@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import toggleOnIcon from "../assets/toggle-on.svg";
 import toggleOffIcon from "../assets/toggle-off.svg";
+import RandomIcon from "./icons/RandomIcon";
+import NumericDescendingIcon from "./icons/NumericDescendingIcon";
+import NumericAscendingIcon from "./icons/NumericAscendingIcon";
+import ToggleOffIcon from "./icons/ToggleOnIcon";
+import ToggleOnIcon from "./icons/ToggleOffIcon";
 
 function Metadata({
   dataEnabled,
@@ -11,7 +16,7 @@ function Metadata({
   setDataOrder,
   authorOrder,
   setAuthorOrder
-})  {
+}) {
 
   return (
     <div className="flex flex-col items-center gap-6 w-full overflow-x-hidden">
@@ -21,39 +26,51 @@ function Metadata({
         <span className="text-lg font-medium">date</span>
 
         <button onClick={() => setDataEnabled(!dataEnabled)}>
-          <img
-            src={dataEnabled ? toggleOnIcon : toggleOffIcon}
-            alt="toggle data metadata"
-            className="w-8 h-8"
-          />
+          {dataEnabled ? (
+          <ToggleOffIcon className="w-8 h-8" />
+          ) : (
+           <ToggleOnIcon className="w-8 h-8" />
+          )}
         </button>
 
         <div className="flex items-center gap-3">
+
           <button
-            className={`px-3 py-1 ${dataOrder === "newest" ? "font-bold" : "opacity-50"} ${
-              !dataEnabled && "opacity-30"
-            }`}
-            onClick={() => dataEnabled && setDataOrder("newest")}
+            className={`hidden md:inline px-3 py-1 ${dataOrder === "asc" ? "font-bold text-[var(--primary)]" : "opacity-50"
+              } ${!dataEnabled && "opacity-30"}`}
+            onClick={() => dataEnabled && setDataOrder("asc")}
           >
-            chronological
+            ascending
+          </button>
+          <button
+            className={`hidden md:inline px-3 py-1 ${dataOrder === "desc" ? "font-bold text-[var(--primary)]" : "opacity-50"
+              } ${!dataEnabled && "opacity-30"}`}
+            onClick={() => dataEnabled && setDataOrder("desc")}
+          >
+            descending
           </button>
 
           <button
-            className={`px-3 py-1 ${dataOrder === "oldest" ? "font-bold" : "opacity-50"} ${
-              !dataEnabled && "opacity-30"
-            }`}
-            onClick={() => dataEnabled && setDataOrder("oldest")}
+            className={`md:hidden p-2 ${dataOrder === "asc" ? "text-[var(--primary)]" : "opacity-50"
+              } ${!dataEnabled && "opacity-30"}`}
+            onClick={() => dataEnabled && setDataOrder("asc")}
           >
-            inverse
+            <NumericAscendingIcon className="w-6 h-6" />
+          </button>
+          <button
+            className={`md:hidden p-2 ${dataOrder === "desc" ? "text-[var(--primary)]" : "opacity-50"
+              } ${!dataEnabled && "opacity-30"}`}
+            onClick={() => dataEnabled && setDataOrder("desc")}
+          >
+            <NumericDescendingIcon className="w-6 h-6" />
           </button>
 
           <button
-            className={`px-3 py-1 ${dataOrder === "random" ? "font-bold" : "opacity-50"} ${
-              !dataEnabled && "opacity-30"
-            }`}
+            className={`px-3 py-1 ${dataOrder === "random" ? "font-bold" : "opacity-50"} ${!dataEnabled && "opacity-30"
+              }`}
             onClick={() => dataEnabled && setDataOrder("random")}
           >
-            random
+            <RandomIcon className="w-4 h-4" />
           </button>
         </div>
       </div>
@@ -62,39 +79,36 @@ function Metadata({
         <span className="text-lg font-medium">author</span>
 
         <button onClick={() => setAuthorEnabled(!authorEnabled)}>
-          <img
-            src={authorEnabled ? toggleOnIcon : toggleOffIcon}
-            alt="toggle author metadata"
-            className="w-8 h-8"
-          />
+          {authorEnabled ? (
+          <ToggleOffIcon className="w-8 h-8" />
+          ) : (
+           <ToggleOnIcon className="w-8 h-8" />
+          )}
         </button>
 
         <div className="flex items-center gap-3">
           <button
-            className={`px-3 py-1 ${authorOrder === "az" ? "font-bold" : "opacity-50"} ${
-              !authorEnabled && "opacity-30"
-            }`}
+            className={`px-3 py-1 ${authorOrder === "az" ? "font-bold" : "opacity-50"} ${!authorEnabled && "opacity-30"
+              }`}
             onClick={() => authorEnabled && setAuthorOrder("az")}
           >
             A-Z
           </button>
 
           <button
-            className={`px-3 py-1 ${authorOrder === "za" ? "font-bold" : "opacity-50"} ${
-              !authorEnabled && "opacity-30"
-            }`}
+            className={`px-3 py-1 ${authorOrder === "za" ? "font-bold" : "opacity-50"} ${!authorEnabled && "opacity-30"
+              }`}
             onClick={() => authorEnabled && setAuthorOrder("za")}
           >
             Z-A
           </button>
 
           <button
-            className={`px-3 py-1 ${authorOrder === "random" ? "font-bold" : "opacity-50"} ${
-              !authorEnabled && "opacity-30"
-            }`}
+            className={`px-3 py-1 ${authorOrder === "random" ? "font-bold" : "opacity-50"} ${!authorEnabled && "opacity-30"
+              }`}
             onClick={() => authorEnabled && setAuthorOrder("random")}
           >
-            random
+            <RandomIcon className="w-4 h-4" />
           </button>
         </div>
       </div>
