@@ -19,6 +19,7 @@ function Metadata({
   setAuthorOrder
 })  {
 
+  
   return (
     <div className="flex flex-col items-center gap-6">
       <span className="text-lg font-bold">metadata</span>
@@ -36,8 +37,8 @@ function Metadata({
             variant="primary"
             className={clsx(
               "hidden md:inline px-3 py-1",
-              dataOrder === "newest" ? "font-bold overline decoration-[3px]" : "opacity-50",
-              !dataEnabled && "opacity-30"
+              dataOrder === "newest" ? "font-bold overline decoration-[3px]" : "opacity-40",
+              !dataEnabled && "opacity-40"
             )}
             onClick={() => dataEnabled && setDataOrder("newest")}
           >
@@ -48,8 +49,8 @@ function Metadata({
             variant="primary"
             className={clsx(
               "hidden md:inline px-3 py-1",
-              dataOrder === "oldest" ? "font-bold overline decoration-[3px]" : "opacity-50",
-              !dataEnabled && "opacity-30"
+              dataOrder === "oldest" ? "font-bold overline decoration-[3px]" : "opacity-40",
+              !dataEnabled && "opacity-40"
             )}
             onClick={() => dataEnabled && setDataOrder("oldest")}
           >
@@ -60,8 +61,8 @@ function Metadata({
             variant="primary"
             className={clsx(
               "hidden md:inline px-3 py-1",
-              dataOrder === "random" ? "font-bold overline decoration-[3px]" : "opacity-50",
-              !dataEnabled && "opacity-30"
+              dataOrder === "random" ? "font-bold overline decoration-[3px]" : "opacity-40",
+              !dataEnabled && "opacity-40"
             )}
             onClick={() => dataEnabled && setDataOrder("random")}
           >
@@ -71,12 +72,12 @@ function Metadata({
             variant="primary"
             className={clsx(
               "md:hidden flex flex-col items-center p-2",
-              dataOrder === "newest" ? "text-[var(--secondary)]" : "opacity-50",
-              !dataEnabled && "opacity-30"
+              dataOrder === "newest" ? "text-[var(--secondary)]" : "opacity-40",
+              !dataEnabled && "opacity-40"
             )}
             onClick={() => dataEnabled && setDataOrder("newest")}
           >
-            <NumericAscendingIcon className={clsx(dataOrder === "newest" ? "text-[var(--secondary)]" : "opacity-50", "w-6 h-6")} />
+            <NumericAscendingIcon className={clsx(dataOrder === "newest" ? "text-[var(--secondary)]" : "opacity-40", "w-6 h-6")} />
   {dataOrder === "newest" && dataEnabled && (
     <span className="w-2 h-2 rounded-full bg-[var(--secondary)] mt-1"></span>
   )}
@@ -86,12 +87,12 @@ function Metadata({
             variant="primary"
             className={clsx(
               "md:hidden flex-col items-center p-2",
-              dataOrder === "oldest" ? "text-[var(--secondary)]" : "opacity-50",
-              !dataEnabled && "opacity-30"
+              dataOrder === "oldest" ? "text-[var(--secondary)]" : "opacity-40",
+              !dataEnabled && "opacity-40"
             )}
             onClick={() => dataEnabled && setDataOrder("oldest")}
           >
-            <NumericDescendingIcon className={clsx(dataOrder === "oldest" ? "text-[var(--secondary)]" : "opacity-50", "w-6 h-6")} />
+            <NumericDescendingIcon className={clsx(dataOrder === "oldest" ? "text-[var(--secondary)]" : "opacity-40", "w-6 h-6")} />
   {dataOrder === "oldest" && dataEnabled && (
     <span className="w-2 h-2 rounded-full bg-[var(--secondary)] mt-1"></span>
   )}
@@ -101,12 +102,12 @@ function Metadata({
             variant="primary"
             className={clsx(
               "md:hidden flex-col items-center p-2",
-              dataOrder === "random" ? "text-[var(--secondary)]" : "opacity-50",
-              !dataEnabled && "opacity-30"
+              dataOrder === "random" ? "text-[var(--secondary)]" : "opacity-40",
+              !dataEnabled && "opacity-40"
             )}
             onClick={() => dataEnabled && setDataOrder("random")}
           >
-            <RandomIcon className={clsx(dataOrder === "random" ? "text-[var(--secondary)]" : "opacity-50", "w-5 h-6")} />
+            <RandomIcon className={clsx(dataOrder === "random" ? "text-[var(--secondary)]" : "opacity-40", "w-5 h-6")} />
   {dataOrder === "random" && dataEnabled && (
     <span className="w-2 h-2 rounded-full bg-[var(--secondary)] mt-1"></span>
   )}
@@ -122,8 +123,8 @@ function Metadata({
 
         <div className="flex items-center gap-3">
           <button
-            className={`hidden md:inline px-3 py-1 ${authorOrder === "az" ? "font-bold overline decoration-[3px]" : "opacity-50"} ${
-              !authorEnabled && "opacity-30"
+            className={`hidden md:inline px-3 py-1 ${authorOrder === "az" ? "font-bold overline decoration-[3px]" : "opacity-40"} ${
+              !authorEnabled && "opacity-40"
             }`}
             onClick={() => authorEnabled && setAuthorOrder("az")}
           >
@@ -131,8 +132,8 @@ function Metadata({
           </button>
 
           <button
-            className={`hidden md:inline px-3 py-1 ${authorOrder === "za" ? "font-bold overline decoration-[3px]" : "opacity-50"} ${
-              !authorEnabled && "opacity-30"
+            className={`hidden md:inline px-3 py-1 ${authorOrder === "za" ? "font-bold overline decoration-[3px]" : "opacity-40"} ${
+              !authorEnabled && "opacity-40"
             }`}
             onClick={() => authorEnabled && setAuthorOrder("za")}
           >
@@ -140,8 +141,8 @@ function Metadata({
           </button>
 
           <button
-            className={`hidden md:inline px-3 py-1 ${authorOrder === "random" ? "font-bold overline decoration-[3px]" : "opacity-50"} ${
-              !authorEnabled && "opacity-30"
+            className={`hidden md:inline px-3 py-1 ${authorOrder === "random" ? "font-bold overline decoration-[3px]" : "opacity-40"} ${
+              !authorEnabled && "opacity-40"
             }`}
             onClick={() => authorEnabled && setAuthorOrder("random")}
           >
@@ -149,10 +150,9 @@ function Metadata({
           </button>
 
    <div className="flex md:hidden justify-center items-center gap-3">
-  {/* A-Z */}
   <button
-    className={`px-3 py-1 ${authorOrder === "az" ? "font-bold" : "opacity-50"} ${
-      !authorEnabled && "opacity-30"
+    className={`px-3 py-1 ${authorOrder === "az" ? "font-bold" : "opacity-40"} ${
+      !authorEnabled && "opacity-40"
     }`}
     onClick={() => authorEnabled && setAuthorOrder("az")}
   >
@@ -162,10 +162,9 @@ function Metadata({
     )}
   </button>
 
-  {/* Z-A */}
   <button
-    className={`px-3 py-1 ${authorOrder === "za" ? "font-bold" : "opacity-50"} ${
-      !authorEnabled && "opacity-30"
+    className={`px-3 py-1 ${authorOrder === "za" ? "font-bold" : "opacity-40"} ${
+      !authorEnabled && "opacity-40"
     }`}
     onClick={() => authorEnabled && setAuthorOrder("za")}
   >
@@ -177,8 +176,8 @@ function Metadata({
 
           <button
     className={`flex flex-col items-center p-2 ${
-      authorOrder === "random" ? "font-bold" : "opacity-50"
-    } ${!authorEnabled && "opacity-30"}`}
+      authorOrder === "random" ? "font-bold" : "opacity-40"
+    } ${!authorEnabled && "opacity-40"}`}
     onClick={() => authorEnabled && setAuthorOrder("random")}
   >
     <RandomIcon className="w-5 h-6" />
