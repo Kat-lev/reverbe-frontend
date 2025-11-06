@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import toggleOnIcon from "../assets/toggle-on.svg";
-import toggleOffIcon from "../assets/toggle-off.svg";
 import RandomIcon from "./icons/RandomIcon";
 import NumericDescendingIcon from "./icons/NumericDescendingIcon";
 import NumericAscendingIcon from "./icons/NumericAscendingIcon";
@@ -36,31 +34,31 @@ function Metadata({
         <div className="flex items-center gap-3">
 
           <button
-            className={`hidden md:inline px-3 py-1 ${dataOrder === "asc" ? "font-bold text-[var(--primary)]" : "opacity-50"
-              } ${!dataEnabled && "opacity-30"}`}
-            onClick={() => dataEnabled && setDataOrder("asc")}
+            className={`hidden md:inline px-3 py-1 ${dataOrder === "newest" ? "font-bold text-[var(--primary)]" : "opacity-100"
+              } ${!dataEnabled && "opacity-100"}`}
+            onClick={() => dataEnabled && setDataOrder("newest")}
           >
             ascending
           </button>
           <button
-            className={`hidden md:inline px-3 py-1 ${dataOrder === "desc" ? "font-bold text-[var(--primary)]" : "opacity-50"
+            className={`hidden md:inline px-3 py-1 ${dataOrder === "oldest" ? "font-bold text-[var(--primary)]" : "opacity-50"
               } ${!dataEnabled && "opacity-30"}`}
-            onClick={() => dataEnabled && setDataOrder("desc")}
+            onClick={() => dataEnabled && setDataOrder("oldest")}
           >
             descending
           </button>
 
           <button
-            className={`md:hidden p-2 ${dataOrder === "asc" ? "text-[var(--primary)]" : "opacity-50"
+            className={`md:hidden p-2 ${dataOrder === "newest" ? "text-[var(--primary)]" : "opacity-50"
               } ${!dataEnabled && "opacity-30"}`}
-            onClick={() => dataEnabled && setDataOrder("asc")}
+            onClick={() => dataEnabled && setDataOrder("newest")}
           >
             <NumericAscendingIcon className="w-6 h-6" />
           </button>
           <button
-            className={`md:hidden p-2 ${dataOrder === "desc" ? "text-[var(--primary)]" : "opacity-50"
+            className={`md:hidden p-2 ${dataOrder === "oldest" ? "text-[var(--primary)]" : "opacity-50"
               } ${!dataEnabled && "opacity-30"}`}
-            onClick={() => dataEnabled && setDataOrder("desc")}
+            onClick={() => dataEnabled && setDataOrder("oldest")}
           >
             <NumericDescendingIcon className="w-6 h-6" />
           </button>
