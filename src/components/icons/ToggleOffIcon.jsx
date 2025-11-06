@@ -10,9 +10,9 @@ const ToggleOffIcon = (props) => (
     <title>Toggle</title>
     <rect
       x="0.5"
-      y="5"
-      width="23"
-      height="14"
+      y="6"
+      width="22"
+      height="12"
       rx="2"
       stroke="currentColor"
       strokeWidth="1.5"
