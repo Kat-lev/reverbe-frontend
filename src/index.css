@@ -6,9 +6,11 @@
   --black: #000000;
   --white: #FFFFFF;
   --gray: #f3f3f3;
+  --darkgray: #d3d3d3;
 
-  --primary: var(--gray);
+  --primary: var(--white);
   --secondary: var(--blue);
+  --tertiary: var(--darkgray);
 
   color-scheme: light dark;
 }
@@ -24,11 +26,12 @@ body {
 body.fosc {
   --babyblue: #7D8FFF;
   --white: #FFFFFF;
-  --black: #111111;
+  --black: #000000;
   --darkgray: #1a1a1a;
 
   --primary: var(--darkgray);
   --secondary: var(--babyblue);
+  --tertiary: var(--black);
 
   background-color: var(--white);
   color: var(--primary);
@@ -41,6 +44,7 @@ body.contrast {
 
   --primary: var(--black);
   --secondary: var(--yellow);
+  --tertiary: var(--white);
 
   background-color: var(--yellow);
   color: var(--primary);

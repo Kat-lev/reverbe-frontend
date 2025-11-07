@@ -15,7 +15,7 @@ const Button = ({
 
   const colorStyles = {
     primary:
-      "text-[var(--secondary)] bg-[var(--primary)] rounded-full px-3 py-1.5 sm:px-5 sm:py-2 flex items-center gap-1 sm:gap-2 text-sm sm:text-base",
+      "text-[var(--secondary)] bg-[var(--tertiary)] rounded-full px-3 py-1.5 sm:px-5 sm:py-2 flex items-center gap-1 sm:gap-2 text-sm sm:text-base",
     secondary:
       "text-[var(--primary)] bg-[var(--secondary)] hover:bg-[var(--secondary)]/80 rounded-full px-3 py-1.5 sm:px-5 sm:py-2 flex items-center gap-1 sm:gap-2 text-sm sm:text-base",
     ghost:

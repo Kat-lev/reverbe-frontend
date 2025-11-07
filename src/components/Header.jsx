@@ -40,7 +40,7 @@ function Header({
   }, []);
 
   return (
-    <header className="bg-(--primary) text-(--secondary) transition-colors duration-500 fixed top-0 left-0 w-full shadow-sm z-50">
+    <header className="bg-(--tertiary) text-(--secondary) transition-colors duration-500 fixed top-0 left-0 w-full shadow-sm z-50">
       <div className="flex items-center justify-between px-4 py-2 h-14">
         <button
           ref={buttonRef}
@@ -61,7 +61,7 @@ function Header({
       {open && (
         <div
           ref={dropdownRef}
-          className="absolute top-full left-0 w-full max-h-[80vh] overflow-y-auto animate-fade-in-down bg-(--primary) z-40"
+          className="absolute top-full left-0 w-full max-h-[80vh] overflow-y-auto animate-fade-in-down bg-(--tertiary) z-40"
         >
           <div className="flex flex-col items-center justify-center gap-8 p-6">
             <div className="flex flex-col items-center gap-2">
