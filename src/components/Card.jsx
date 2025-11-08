@@ -155,7 +155,7 @@ export default function Card({ data, variant = "scroll", dataEnabled = false, au
     <>
     <div
       className={clsx(
-        "relative rounded-md border transition duration-200 ease-in-out p-3 sm:p-4 md:p-6 shadow-md",
+        "rounded-md border transition duration-200 ease-in-out p-3 sm:p-4 md:p-6 shadow-md",
         variant === "scroll" && "hover:shadow-md space-y-4",
         variant === "single" && "max-w-3xl w-full mx-auto space-y-6 md:p-10",
         variant === "postit" &&
@@ -166,16 +166,6 @@ export default function Card({ data, variant = "scroll", dataEnabled = false, au
       )}
       style={style}
     >
-      {variant === "postit" && data.adjunts && data.adjunts.length > 0 && (
-          <div className="absolute inset-0 w-full h-full overflow-hidden rounded-md z-0">
-            <img
-              src={data.adjunts[0]}
-              alt={data.assumpte || "Adjunt"}
-              className="w-full h-full object-cover"
-              style={{ pointerEvents: "none" }}
-            />
-          </div>
-        )}
       <div className="flex-1 overflow-hidden">
         <h3
           className="text-base sm:text-lg md:text-xl font-semibold"
