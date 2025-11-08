@@ -18,7 +18,7 @@
 body {
   font-family: 'IBM Plex Mono', monospace;
   background-color: var(--secondary);
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 5s ease, color 5s ease;
   overflow-x: hidden;
   width: 100%;
 }

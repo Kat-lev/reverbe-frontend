@@ -12,7 +12,7 @@ export const ThemeProvider = ({ children }) => {
 
 const generateRandomColor = () => {
   const hue = Math.floor(Math.random() * 360);
-  const saturation = Math.random() * 100;
+  const saturation = 80 + Math.random() * 20;
   const lightness = Math.random() * 100;
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
@@ -32,7 +32,7 @@ const randomizeColors = () => {
 
     if (theme === "canviant") {
       randomizeColors();
-      interval = setInterval(randomizeColors, 2000);
+      interval = setInterval(randomizeColors, 4000);
     } else if (theme === "fosc") {
       setColors({
         primary: "var(--white)",
@@ -59,14 +59,14 @@ const randomizeColors = () => {
   useEffect(() => {
     const root = document.documentElement;
 
-    root.style.transition = "background-color 0.8s ease, color 0.8s ease";
+    root.style.transition = "background-color 5s ease, color 5s ease";
     root.style.setProperty("--primary", colors.primary);
     root.style.setProperty("--secondary", colors.secondary);
     root.style.setProperty("--tertiary", colors.tertiary);
 
     const timeout = setTimeout(() => {
       root.style.transition = "";
-    }, 800);
+    }, 4000);
 
     return () => clearTimeout(timeout);
   }, [colors]);
