@@ -1,16 +1,62 @@
-# React + Vite
+# Reverberacions d’Amor i Odi (RAIO) – Diari Reverbe interface
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Reverberacions d’Amor i Odi (RAIO)** is an experimental exploration of digital interfaces, where existing technologies are reclaimed to reflect on social networks, contemporary connections, and the echoes of our digital selves. Through this project, humble community archives are created—repositories of reflections that reverberate across screens, actions, and collective imagination.  
 
-Currently, two official plugins are available:
+Discover the wider research project here: [RAIO Official Site](https://raio.issim.net/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This repository hosts the interface where reflections take form and circulate: [Diari Reverbe](https://diari-reverbe.github.io/reverbe/)
 
-## React Compiler
+The backend was created in Python by Azahara Cerezo.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## The experience
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Contribute your reflections to a shared digital diary  
+- Read the reverberations of others, in an interface of your choosing, from austere to chaotic!  
+- Participate in a living archive of thoughts, gestures, and messages  
+- Accessible, responsive design using modern web technologies  
+
+---
+
+## Built with
+
+- **React (JavaScript)** – to shape dynamic, living components  
+- **Vite** – for fast, seamless development  
+- **Tailwind CSS** – minimalistic styling that breathes  
+- **React Hooks** – managing the flow of state and life inside the app  
+
+---
+
+## Getting started
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/kat-lev/reverbe.git
+cd reverbe
+npm install
+```
+
+Run the development server:
+```bash
+npm run dev
+```
+## Licence
+
+This project is shared under the **MIT License**, embracing openness and collaboration.  
+See [LICENSE](LICENSE) for details.
+
+---
+
+## Contributors
+
+- **Mariona Cuyàs** – [GitHub](https://github.com/cuyass) 
+- **Kat Leverton** – [GitHub](https://github.com/kat-lev)  
+
+---
+
+## Future sprints
+
+- Blind scroll: infinite scrolling for those with an ounce of self control
+- Activate the reverberations function (interface is already prepared to display them)
